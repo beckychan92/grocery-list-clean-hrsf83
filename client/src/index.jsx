@@ -17,15 +17,48 @@ class App extends React.Component {
     }
   }
 
+  modifyState(groceryItem) {
+    var tempArr = this.state.list;
+    tempArr.push(groceryItem);       
+    this.setState(tempArr)
+    console.log(tempArr)
+  }
+
   render () {
     return (
       <div>
-        <AddGrocery list={this.state.list} />
-        <GroceryItem list={this.state.list} />
-        <GroceryList list={this.state.list} />
+        <AddGrocery list={this.state.list} modifyState={this.modifyState.bind(this)}/>
+        
+        <GroceryList list={this.state.list}  />
       </div>
     );
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+    //return a list
+    //call this.setstate with new list
+    //access list 
+    //push groeryitem to list 
+    //set state as new list 
+
+  // nextIndex(){
+  //   var count = this.state.list.length 
+  //   console.log(count , 'is count')
+  //   // let updateCount = count;
+  //   console.log(this.state.counter, 'counter')
+  //   this.setState({counter: count++});
+  //   console.log(this.state.counter, 'counter')
+  //   // console.log(this.state)
+  //   return count; 
+  //   // this.setState({ <GroceryItem list={this.state.list} />
+  //   //   counter: this.state.counter + 1
+  //   // })
+  //   tho
+    
+    
+  // }
+
+
+  // {id: 5, quantity: 15, description: "juice"},
+  //push grocery item onto list 
